@@ -24,13 +24,13 @@ app.set('view options',{layout :false});
 
 //Database Connection
 const mySqlConnection = mysql.createConnection({
-    host : "35.173.73.2",
-    user : "user",
-    password :"YourPassword",
-    database : "iwaddatabase",
+    host : "database-1.cztobvy32d6g.us-east-1.rds.amazonaws.com",
+    user : "admin",
+    password :"Afrotour",
+    database : "Hello",
     multipleStatements: true,
     insecureAuth :true
-})/*
+})
 mySqlConnection.connect((err)=>{
     if(!err)
     console.log("CONNECTION MADE!!")
@@ -38,11 +38,10 @@ mySqlConnection.connect((err)=>{
     console.log("CONNECTION ERROR : " + JSON.stringify(err, undefined, 2))
 })
 app.get("",(req, res) =>{
-    mySqlConnection.query("SELECT * FROM iwaddatabase.users", (err, data, FIELDS) =>{
+    mySqlConnection.query("SELECT * FROM Hello.users", (err, data, FIELDS) =>{
         if(!err){    
             if(data.length > 0){
-            userLogin = true
-            res.send("yes")    
+            res.send(data)    
     }
     else{
         res.send("Invalidinput")
@@ -53,11 +52,6 @@ app.get("",(req, res) =>{
     }
     res.end();
 })
-})
-*/
-//Render HOME page
-app.get("", (req,res) =>{
-    res.render("index")
 })
 
 // PORT NUMBER 
