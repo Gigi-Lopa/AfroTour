@@ -1,0 +1,21 @@
+{
+  "name": "afro_tour",
+  "version": "1.0.0",
+  "description": "Afro Tour is an online service platform that allows individuals to make bookings to torrist sites",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.7",
+    "pug": "^3.0.2"
+  }
+}
