@@ -2,3 +2,7 @@
     color: rgb(167, 106, 58);
     font-size: larger;
 }
+.form_group{
+    width: 50%;
+    background-color: bisque;
+}
