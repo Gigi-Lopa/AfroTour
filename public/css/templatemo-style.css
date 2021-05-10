@@ -772,9 +772,11 @@ header {
 }
 
 .tabgroup {
-  background-color:red;
-  padding: 5%;
+  padding: 2.5%;
+  display: list-item;
+  list-style-type: none;
 }
+
 
 .clearfix:after {
   content:"";
