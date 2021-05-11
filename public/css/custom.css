@@ -15,8 +15,14 @@
     display: inline-flex;
     width: 100%;
 }
+
 .bgimage{
     background-image: url(../img/stones.jpg);
+}
+.bgimage-scnd{
+    background-image: url(../img/stones1.jpg);
+}
+.bgimage , .bgimage-scnd{
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
