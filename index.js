@@ -5,7 +5,7 @@ const mysqlConnection = require('./databaseConnection');
 const upload = require('express-fileupload');
 const data = require("./testData")
 // Use functions
-app.use(express.static('public'));
+app.use(express.static('public')); 
 app.use(upload());    
 app.use(express.json({limit: '5mb'}));
 

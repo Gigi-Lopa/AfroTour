@@ -28,7 +28,6 @@ p {
   display: inline-block;
   height: auto;
   left: 50%;
-  text-align: center;
   -webkit-transform: translateX(-50%);
   -moz-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
@@ -734,7 +733,7 @@ header {
   margin: 0px;
   padding: 0px;
   background-color:white;
-  border-bottom: 10px solid #45489a;
+  border-bottom: 10px solid rgb(167, 106, 58);
 }
 
 #blog .tabs li {
@@ -758,7 +757,7 @@ header {
 }
 
 #blog .tabs a:hover {
-  color: #45489a;
+  color: rgb(167, 106, 58);
 }
 
 
@@ -767,7 +766,7 @@ header {
 }
 
 #blog .tabs .active {
-  background-color: #45489a;
+  background-color: rgb(167, 106, 58);
   color: #fff;
 }
 

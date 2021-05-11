@@ -2,7 +2,93 @@
     color: rgb(167, 106, 58);
     font-size: larger;
 }
-.form_group{
+#tab1{
+    padding-top: 2.5%;
+    width: 100%;
+}
+#first-tab-group{
+    border: 1px solid rgb(167, 106, 58);
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+.regWrapper{
+    display: inline-flex;
+    width: 100%;
+}
+.bgimage{
+    background-image: url(../img/stones.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 50%;    
+}
+.form-container{
     width: 50%;
-    background-color: bisque;
+  }
+.form-row{
+    display: inline-flex;
+}
+.form-row select{
+    width: 417px;
+    border: none;
+    height: 60px;
+    border-bottom: 0.5px solid #a7a7a7;
+    outline: none;
+    padding: 2.5% 2.5% 2.5% 1%;
+}
+.form-row-1{
+    padding-right: 5%;
+}
+.form-row-1 input, .form-row-2 input{
+    border: none;
+    border-bottom: 0.5px solid #a7a7a7;
+    outline: none;
+    padding: 2.5% 2.5% 2.5% 1%;
+    width: 200px;
+    height: 60px;
+}
+.form-group .input-bar{
+        border: none;
+        border-bottom: 0.5px solid #a7a7a7;
+        outline: none;
+        padding: 2.5% 2.5% 2.5% 1%;
+        height: 60px;
+        width: 416px;
+    
+}
+.input-password{
+    border: none;
+    border-bottom: 0.5px solid #a7a7a7;
+    outline: none;
+    padding: 2.5% 2.5% 2.5% 1%;
+    height: 60px;
+    width: 370px;
+}
+.form-group  input .i-p-btn{
+    border: none;
+    outline: none;
+}
+.i-p-btn{
+color: rgb(167, 106, 58);
+background-color: #fff;
+border-color: #a7a7a7;
+height: 60px;
+border: none;
+overflow: unset;
+}
+@media (max-width: 1200px) {
+    .form-row{
+        display: list-item;
+        list-style-type: none; ;
+    }
+    .form-row select{
+        width: 300px;
+    }
+    .form-group .input-bar{
+        width: 300px;
+    }
+    .input-password{
+        width :260px;
+    }
+   
 }
