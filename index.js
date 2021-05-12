@@ -23,7 +23,8 @@ app.listen(port, () => console.log('listening at  http://localhost:4000'));
 
 
 app.post('/register_tourist', (request, response) => {
-    // mysqlConnection.query('select * from products', (err, rows, fields) => {
+    
+    // mysqlConnection.query(`insert into tourist (title,first_name,last_name,company,email,phone,password,password_veryfication) values (${request.body.title},${request.body.first_name},${request.body.last_name},${request.body.company},${request.body.email},${request.body.phone},${request.body.password},${request.body.password_veryfication})`, (err, rows, fields) => {
     //     if(!err){
     //         //console.log(rows);
     //         var data = rows; 
@@ -37,7 +38,8 @@ app.post('/register_tourist', (request, response) => {
 });
 
 app.post('/register_patner', (request, response) => {
-    // mysqlConnection.query('select * from products', (err, rows, fields) => {
+    
+    // mysqlConnection.query(`insert into patner (title,first_name,last_name,company,email,phone,password,password_veryfication) values (${request.body.title},${request.body.first_name},${request.body.last_name},${request.body.company},${request.body.email},${request.body.phone},${request.body.password},${request.body.password_veryfication})`, (err, rows, fields) => {
     //     if(!err){
     //         //console.log(rows);
     //         var data = rows; 
@@ -46,6 +48,8 @@ app.post('/register_patner', (request, response) => {
     //         throw err;
     //     }
     // })
+
     console.log(request.body)
     response.json(data);
+
 });
