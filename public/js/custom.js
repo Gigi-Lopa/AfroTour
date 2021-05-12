@@ -70,33 +70,41 @@ function register_patner(){
     var phone = document.getElementById("phone_patner").value
     var password = document.getElementById("password_patner").value
     var password_veryfication = document.getElementById("password2_patner").value
+    
 
-    alert(email)
+    if(password.length > 8 ){
+        if(password == password_veryfication){
+            alert(email)
 
-    var data = {
-        title,
-        first_name,
-        last_name,
-        company,
-        email,
-        phone,
-        password,
-        password_veryfication
-    }
-
-
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    };
-    fetch('/register_patner', options).then(response => response.json()).then(status => {
-        console.log(status);
-
-        alert(status);
-
+            var data = {
+                title,
+                first_name,
+                last_name,
+                company,
+                email,
+                phone,
+                password,
+                password_veryfication
+            }
         
-    })
+        
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            };
+            fetch('/register_patner', options).then(response => response.json()).then(status => {
+                console.log(status);
+        
+                alert(status);
+        
+            })
+        }else{
+            alert("Passwords provided do not match")
+        }
+    }else{
+        alert("please Enter a password  of at least 8 characters")
+    }
 }
