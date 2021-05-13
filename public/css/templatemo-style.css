@@ -536,7 +536,8 @@ header {
 }
 
 #featured .item .image img {
-  width: 100%;
+  height: auto;
+  width: 50%;
   overflow: hidden;
 }
 
@@ -550,7 +551,7 @@ header {
   display: inline-block;
   height: 44px;
   line-height: 44px;
-  width: 100%;
+  width: 50%;
   letter-spacing: 0.25px;
   text-decoration: none;
   transition: all 0.5s;

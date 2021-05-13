@@ -82,6 +82,25 @@ height: 60px;
 border: none;
 overflow: unset;
 }
+fieldset{
+    padding-top: 1%;
+}
+fieldset button{
+    border: 1px solid rgb(167, 106, 58);
+    background-color: rgb(167, 106, 58);
+    color: #ffff;
+    padding:2.5%;
+    width: 30%;
+    border-radius: 25px;
+    transition: all 0.3s;
+}
+fieldset button:hover{
+    
+    background-color: #fff;
+    color: rgb(167, 106, 58);
+    border: 1px solid rgb(167, 106, 58);
+    
+}
 @media (max-width: 1200px) {
     .form-row{
         display: list-item;
