@@ -1,21 +1,3 @@
-$("document").ready(function(){
-    $("#show_password").on("click", function(){
-        console.log("fdfd")
-    var passwordField = $("#password");
-    var passwordFieldType = passwordField.attr('type')
-    if (passwordFieldType == 'password'){
-        passwordField.attr('type', 'text')
-    }
-    else
-    {
-        passwordField.attr("type", "password")
-
-    }
-
-});
-});
-
-
 function register(){
     alert("email")
 
@@ -107,4 +89,30 @@ function register_patner(){
     }else{
         alert("please Enter a password  of at least 8 characters")
     }
+}
+function addItems(){
+    fetch("/fluid-attraction")
+    .then((res) =>{ return res.json()})
+    .then((data) => {
+        let item_card = ``
+        let attr = ""
+        data.forEach((item) => {
+            item_card += `
+            <div class="item">
+            <div class="image">
+                <img src = "${item.image_src}">
+                <div class="featured-button button">
+                    <a href="#projects">Continue Reading</a>
+                </div>
+            </div>
+            <div class="text-content">
+                <h4>${item.location_name} </h4>
+                <span id="subTitle">${item.review}</span>
+                <p>${item.desc}</p>
+                </div>
+            </div>
+            `
+        });
+        $("#Items").append(item_card)
+    })
 }

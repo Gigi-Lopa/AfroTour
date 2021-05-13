@@ -1,0 +1,42 @@
+[{
+    "id":"5001",
+    "image_src":"/img/sneha-cecil-DEBrMzu-D8I-unsplash.jpg",
+    "location_name": "Mfombi",
+    "review":"5 star",
+    "desc":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur cupiditate eum pariatur deserunt molestias beatae ea autem! Aspernatur repellendus, minima perferendis ratione voluptate eius consectetur?"
+    
+},
+{
+    "id":"5002",
+    "image_src":"img/featured_2.jpg",
+    "location_name": "Great Zimbabwe",
+    "review":"5 star",
+    "desc":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur cupiditate eum pariatur deserunt molestias beatae ea autem! Aspernatur repellendus, minima perferendis ratione voluptate eius consectetur?"
+    
+},
+{
+    "id":"5003",
+    "image_src":"/img/sneha-cecil-DEBrMzu-D8I-unsplash.jpg",
+    "location_name": "Kariba Dam",
+    "review":"5 star",
+    "desc":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur cupiditate eum pariatur deserunt molestias beatae ea autem! Aspernatur repellendus, minima perferendis ratione voluptate eius consectetur?"
+    
+},
+{
+    "id":"5004",
+    "image_src":"/img/sneha-cecil-DEBrMzu-D8I-unsplash.jpg",
+    "location_name": "Matopo's",
+    "review":"5 star",
+
+    "desc":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur cupiditate eum pariatur deserunt molestias beatae ea autem! Aspernatur repellendus, minima perferendis ratione voluptate eius consectetur?"
+    
+},
+{
+    "id":"5005",
+    "image_src":"/img/sneha-cecil-DEBrMzu-D8I-unsplash.jpg",
+    "location_name": "Victoria Falls",
+    "review":"5 star",
+    "desc":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur cupiditate eum pariatur deserunt molestias beatae ea autem! Aspernatur repellendus, minima perferendis ratione voluptate eius consectetur?"
+    
+}
+]
