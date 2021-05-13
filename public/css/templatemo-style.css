@@ -4,12 +4,11 @@ Sentra Template
 
 https://templatemo.com/tm-518-sentra
 
-*/
-
+*/ 
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Poppins:ital,wght@0,400;1,300&family=Quicksand:wght@300&family=Raleway:wght@500&display=swap');
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
-
 p {
   font-size: 13px;
   color: #7a7a7a;
