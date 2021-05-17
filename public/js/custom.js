@@ -1,95 +1,53 @@
-function register(){
-    alert("email")
+/*function passData(){
+ 
+    let rep_title = document.getElementById("selectedOption").value
+    let rep_name = document.getElementById("rep-name").value;
+    let rep_contact =  document.getElementById("rep-number").value;
+    let com_name =  document.getElementById("com-name").value
+    let com_email = document.getElementById("com-email").value
+    let hq_location = document.getElementById("hq-location").value
+    let com_number = document.getElementById("com-number").value
+    let reg_number = document.getElementById("reg-number").value
+    let com_service = document.getElementById("com-service").value
+    let com_password = document.getElementById("com-password").value
+    let com_confirm_password = document.getElementById("com-password2").value
 
-    var title = document.getElementById("title").value
-    var first_name = document.getElementById("first_name").value
-    var last_name = document.getElementById("last_name").value
-    var company = document.getElementById("company_name").value
-    var email = document.getElementById("email").value
-    var phone = document.getElementById("phone_n").value
-    var password = document.getElementById("password").value
-    var password_veryfication = document.getElementById("password2").value
-
-    alert(email)
-
-    var data = {
-        title,
-        first_name,
-        last_name,
-        company,
-        email,
-        phone,
-        password,
-        password_veryfication
-    }
-
-
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    };
-    fetch('/register_tourist', options).then(response => response.json()).then(status => {
-        console.log(status);
-
-        alert(status);
-
-        
-    })
-}
-
-
-function register_patner(){
-    alert("email")
-
-    var title = document.getElementById("title_patner").value
-    var first_name = document.getElementById("first_name_patner").value
-    var last_name = document.getElementById("last_name_patner").value
-    var company = document.getElementById("company_name_patner").value
-    var email = document.getElementById("email_patner").value
-    var phone = document.getElementById("phone_patner").value
-    var password = document.getElementById("password_patner").value
-    var password_veryfication = document.getElementById("password2_patner").value
-    
-
-    if(password.length > 8 ){
-        if(password == password_veryfication){
-            alert(email)
-
-            var data = {
-                title,
-                first_name,
-                last_name,
-                company,
-                email,
-                phone,
-                password,
-                password_veryfication
-            }
-        
-        
-            const options = {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            };
-            fetch('/register_patner', options).then(response => response.json()).then(status => {
-                console.log(status);
-        
-                alert(status);
-        
-            })
-        }else{
-            alert("Passwords provided do not match")
+    if (com_password === com_confirm_password ){
+        data = {
+            rep_title,
+            rep_name,
+            rep_contact,
+            com_name,
+            com_email,
+            hq_location,
+            com_number,
+            reg_number,
+            com_service,
+            com_password
         }
-    }else{
-        alert("please Enter a password  of at least 8 characters")
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+            };
+        fetch("/route/r3g_p@rtn3r",options)
+        .then((res) => res.json())
+        .then(status => {
+            console.log(status)
+        })
+    }   
+    else{
+        let err_card = `<div class="alert alert-danger" role="alert">
+        <strong>Password don't match</strong>
+      </div>`
+        $("#err-message").append(err_card)
     }
-}
+
+}*/
+var preloadervar = document.getElementById("preloader")
+
 function addItems(){
     fetch("/fluid-attraction")
     .then((res) =>{ return res.json()})
@@ -99,8 +57,8 @@ function addItems(){
         data.forEach((item) => {
             item_card += `
             <div class="item">
-            <div class="image">
-                <img src = "${item.image_src}">
+            <div class="image" style= "background-image: url(${item.image_src});">
+
                 <div class="featured-button button">
                     <a href="#projects">Continue Reading</a>
                 </div>
@@ -111,8 +69,10 @@ function addItems(){
                 <p>${item.desc}</p>
                 </div>
             </div>
-            `
+            <br><br>`
         });
         $("#Items").append(item_card)
     })
+    preloadervar.style.display = "none";
+
 }

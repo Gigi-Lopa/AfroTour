@@ -198,7 +198,6 @@ header {
   color: #fff;
   font-size: 24px;
   font-weight: 700;
-  text-transform: uppercase;
   letter-spacing: 0.5px;
   height: 100px;
   width: 100%;
@@ -242,6 +241,9 @@ header {
   font-size: 15px;
   letter-spacing: 0.5px;
   text-transform: capitalize;
+}
+.bg-color{
+  background-color: rgb(249, 249, 249);
 }
 .circle{
   margin-right: 5px;
@@ -525,19 +527,22 @@ header {
 }
 
 #featured .item {
-  text-align: left;
-  position: relative;
-  z-index: 10;
+  padding: 2%;
+  background-color: transparent;
+  border-radius: 25px;
+  box-shadow: rgb(179, 179, 179) 0px 0px 15px;
+  height:300px;
+  display: inline-flex;
+  flex-direction: row;
 }
 
 #featured .item .image {
   position: relative;
-}
-
-#featured .item .image img {
-  height: auto;
-  width: 50%;
-  overflow: hidden;
+  width: 40%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  border-radius: 25px;
 }
 
 #featured .item .image .featured-button a {
@@ -550,7 +555,7 @@ header {
   display: inline-block;
   height: 44px;
   line-height: 44px;
-  width: 50%;
+  width: 100%;
   letter-spacing: 0.25px;
   text-decoration: none;
   transition: all 0.5s;
@@ -558,6 +563,8 @@ header {
   z-index: 9;
   bottom: -44px;
   opacity: 0;
+  border-bottom-left-radius:25px ;
+  border-bottom-right-radius: 25px;
 }
 
 #featured .item:hover .featured-button a {
@@ -570,6 +577,9 @@ header {
   background-color: #fff;
   position: relative;
   z-index: 10;
+  width: 60%;
+  height: 100%;
+  padding-left: 5%;
 }
 
 #featured .item .text-content h4 {
@@ -732,8 +742,9 @@ header {
   list-style: none;
   margin: 0px;
   padding: 0px;
-  background-color:white;
-  border-bottom: 10px solid rgb(167, 106, 58);
+  background-color:rgb(249, 249, 249);
+  border-bottom: 10px solid rgb(249, 249, 249);
+  ;
 }
 
 #blog .tabs li {
@@ -766,7 +777,7 @@ header {
 }
 
 #blog .tabs .active {
-  background-color: rgb(167, 106, 58);
+  background-color: #0d0121;
   color: #fff;
 }
 
