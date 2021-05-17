@@ -150,7 +150,41 @@ select{
     width:40%
 }
 
-/**/
+/*SECTION-HEADING*/
+.section-heading  p img{
+    position: relative;
+    bottom: 50px;
+}
+
+/* CARDS PROMOTION*/
+.promotion-cards{
+    background-color: rebeccapurple;
+    padding: 2%;
+    position: relative;
+    
+}
+.promotion-cards .card-item{
+    background-color:#fff;
+    width:100%;
+    height: 250px;
+    display: inline-flex;
+   
+}
+.promotion-cards .card-item .image{
+    width: 40%;
+    background-image: url(/img/featured_1.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.promotion-cards .card-item .information{
+    width: 60%;
+    padding: 2%;
+}
+.promotion-cards .card-item .information h3{
+    font-size: 2.5rem;
+    font-weight: bold;
+}
 /* Responsive*/
 @media (max-width: 1200px) {
     .form-row{
@@ -212,6 +246,11 @@ select{
         }
     .content #quote-img{
         object-fit: cover;
+    }
+}
+@media (max-width:528px){
+    .section-heading  p img{
+        bottom: 0;
     }
 }
 @media (max-width: 480px){

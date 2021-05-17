@@ -59,7 +59,7 @@ p {
   font-size: 15px;
   line-height: 26px;
   color: #343434;
-  position: absolute;
+  position: relative;
   top: 12.5px;
 }
 

@@ -47,7 +47,37 @@
 
 }*/
 var preloadervar = document.getElementById("preloader")
+function fluid_promotion(){
+    fetch("/fluid-promotions")
+    .then((res) =>{ return res.json()})
+    .then((data) => {
+        let card = ``
+        data.forEach((item) => {
+            card += `
+            <div class="card-item">
+            <div class="image">
 
+            </div>
+            <div class="information">
+                <h3>${item.name} <span>${item.subtitle}</span></h3>
+            <div class="star">
+            <h5>5 STars</h5> 
+            </div>
+             <div class="desc">
+                ${item.desc_review}
+             </div>
+             <h5>
+                 <span style = "color:#3c763d">${item.date_start}</span> - <span style = "color:#a94442">${item.date_end}</span>
+             </h5>
+             <button type="button" class="btn btn-warning">Read More</button>
+             </div>
+           </div>
+
+            `
+        });
+        $(".promotion-cards").append(card)
+    })
+}
 function addItems(){
     fetch("/fluid-attraction")
     .then((res) =>{ return res.json()})
@@ -74,5 +104,6 @@ function addItems(){
         $("#Items").append(item_card)
     })
     preloadervar.style.display = "none";
+    fluid_promotion()
 
 }
