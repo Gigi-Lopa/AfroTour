@@ -1,0 +1,7 @@
+The fields info1,info2,info3,info4 will represent 
+salt
+pepper
+hashed and peppered password
+hased and salted username/email
+
+interchangebly
