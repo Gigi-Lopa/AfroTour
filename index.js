@@ -7,6 +7,7 @@ const path = require("path")
 const bordyParser = require("body-parser")
 const router = require("./router");
 const { dirname } = require('path');
+const session = require("express-session")
 
 // Use functions
 app.use(express.static('public')); 
@@ -18,6 +19,13 @@ app.use(bordyParser.urlencoded({extended: true}))
 app.use(bordyParser.json());
 app.use(upload());    
 app.use(express.json({limit: '5mb'}));
+app.use(session({
+    secret: "XwPp9xazJ0ku5CZnlmgAx2Dld8SHkAeT",
+    cookie: {maxAge:6000},
+    resave: false,
+    saveUninitialized:false
+}))
+
 
 //Set html view engine
 app.set('views', path.join(__dirname, "views"));

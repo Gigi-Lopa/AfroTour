@@ -55,7 +55,7 @@ function fluid_promotion(){
         data.forEach((item) => {
             card += `
             <div class="card-item">
-            <div class="image">
+            <div class="image" style= "background-image: url(${item.image_source});">
 
             </div>
             <div class="information">
