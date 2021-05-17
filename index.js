@@ -63,3 +63,19 @@ app.get("/fluid-attraction", (req,res) =>{
         }
     })
 })
+app.get("/fluid-promotions", (req,res) =>{
+    let options = {
+        root: path.join(__dirname)
+    }
+    fileName = "fluid-promotion.json"
+    res.sendFile(fileName, options, function(err){
+        if(!err){
+            console.log("sent2")
+            
+        }
+        else{
+            console.log("error")
+        }
+    })
+})
+
