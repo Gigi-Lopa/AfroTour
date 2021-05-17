@@ -64,12 +64,12 @@ function fluid_promotion(){
             <h5>5 STars</h5> 
             </div>
              <div class="desc">
-                ${item.desc_review}
+                ${item.desc}
              </div>
              <h5>
                  <span style = "color:#3c763d">${item.date_start}</span> - <span style = "color:#a94442">${item.date_end}</span>
              </h5>
-             <button type="button" class="btn btn-warning">Read More</button>
+             <button type="button" class="read-more">Read More</button>
              </div>
            </div>
 
