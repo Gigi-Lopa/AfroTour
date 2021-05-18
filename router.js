@@ -12,7 +12,7 @@ router.get("/show_services",(req, res)=>{
 router.get("/show_errpage",(req, res)=>{
     res.render("errpage")
 })
-router.post("/r3g_p@rtn3r",(req, res) =>{
+router.post("/add_partner",(req, res) =>{
     let rep_title = req.body.rep_title;
     let rep_name =  req.body.rep_name;
     let rep_contact = req.body.rep_number;
@@ -31,6 +31,7 @@ router.post("/r3g_p@rtn3r",(req, res) =>{
         res.redirect("/route/show_services")
     }
     else{
+        console.error(err)
         res.redirect("/route/show_errpage")
     }   
     }); 

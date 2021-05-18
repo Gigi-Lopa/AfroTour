@@ -8,7 +8,7 @@ const bordyParser = require("body-parser")
 const router = require("./router");
 const { dirname } = require('path');
 const session = require("express-session")
-
+const testData = require("./testData.json")
 // Use functions
 app.use(express.static('public')); 
 app.use("/css",express.static(__dirname+"public/css"))
@@ -50,26 +50,25 @@ app.listen(port, () => console.log('listening at  http://localhost:4000'));
 
 //Routes
 app.get("",(req,res) =>{
-    res.render("index", {"password_match":true})
+    data= {
+        "password_match":true,
+        length:parseInt(testData.length),
+    }
+    res.render("index", data)
 })
 app.get("/test",(req,res) =>{
     res.render("test")
 })
 
 app.get("/fluid-attraction", (req,res) =>{
-    let options = {
-        root: path.join(__dirname)
-    }
-    fileName = "testData.json"
-    res.sendFile(fileName, options, function(err){
-        if(!err){
-            console.log("sent")
-            
-        }
-        else{
-            console.log("error")
-        }
-    })
+    let page = req.query.page;
+    let limit = req.query.limit;
+    
+    let startIndex = (page - 1) * limit;
+    let endIndex = page * limit
+
+    let results = testData.slice(startIndex,endIndex)
+    res.send(results)
 })
 app.get("/fluid-promotions", (req,res) =>{
     let options = {

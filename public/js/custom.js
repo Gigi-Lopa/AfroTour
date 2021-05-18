@@ -49,7 +49,6 @@
 var preloadervar = document.getElementById("preloader")
 function fluid_promotion(){
     fetch("/fluid-promotions")
-    .then((res) =>{ return res.json()})
     .then((data) => {
         let card = ``
         data.forEach((item) => {
@@ -78,15 +77,19 @@ function fluid_promotion(){
         $(".promotion-cards").append(card)
     })
 }
+let length = document.getElementById("_length").value
+let page = 1
+let limit = 5
 function addItems(){
-    fetch("/fluid-attraction")
+    console.log(page)
+    fetch("/fluid-attraction?page="+page+"&limit="+limit)
     .then((res) =>{ return res.json()})
     .then((data) => {
         let item_card = ``
-        let attr = ""
-        data.forEach((item) => {
+        // LOOP THROUGH RESULTED ARRAY
+        data.forEach(item => {  
             item_card += `
-            <div class="item">
+            <div class="item" id="snip_off">
             <div class="image" style= "background-image: url(${item.image_src});">
 
                 <div class="featured-button button">
@@ -106,4 +109,14 @@ function addItems(){
     preloadervar.style.display = "none";
     fluid_promotion()
 
+}
+function prev(){
+    page = page - 1 
+    $("#snip_off").remove()
+    addItems()
+}   
+function next(){
+    page = page + 1
+    $("#snip_off").remove()
+    addItems() 
 }
