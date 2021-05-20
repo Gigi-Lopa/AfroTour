@@ -1,3 +1,4 @@
+/* Forms*/
 .nav-text-color{
     color: #4db6ac;
     font-size: larger;
@@ -30,7 +31,7 @@
     background-repeat: no-repeat;
     width: 50%;    
 }
-/* Forms*/
+
 .form-container{
     width: 50%;
     padding-right: 2.5%;
@@ -104,7 +105,6 @@ overflow: unset;
     transition: all 0.3s;
 }
 #submit-btn button:hover{
-    
     background-color: #fff;
     color: #4db6ac;
     border: 1px solid #4db6ac;
@@ -243,6 +243,10 @@ select{
     }
     .form-container{
         width: 100%;
+    }
+    #featured #Items{
+       overflow-y: scroll;
+
     }
 }
 @media(max-width: 800px){

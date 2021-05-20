@@ -46,9 +46,23 @@
     }
 
 }*/
-var preloadervar = document.getElementById("preloader")
+//VARIABLES 
+var preloadervar = document.getElementById("")
+let length = document.getElementById("_length").value
+let page = 1
+let limit = 3
+
+//FUNCTIONS$
+$("document").ready(function(){
+    $(".item_card").owlCarousel({
+        items: 3,
+        navigation:true,
+        margin:0
+    })
+})
 function fluid_promotion(){
     fetch("/fluid-promotions")
+    .then((res) =>{ return res.json()})
     .then((data) => {
         let card = ``
         data.forEach((item) => {
@@ -74,49 +88,13 @@ function fluid_promotion(){
 
             `
         });
+
         $(".promotion-cards").append(card)
     })
 }
-let length = document.getElementById("_length").value
-let page = 1
-let limit = 5
 function addItems(){
-    console.log(page)
-    fetch("/fluid-attraction?page="+page+"&limit="+limit)
-    .then((res) =>{ return res.json()})
-    .then((data) => {
-        let item_card = ``
-        // LOOP THROUGH RESULTED ARRAY
-        data.forEach(item => {  
-            item_card += `
-            <div class="item" id="snip_off">
-            <div class="image" style= "background-image: url(${item.image_src});">
-
-                <div class="featured-button button">
-                    <a href="#projects">Continue Reading</a>
-                </div>
-            </div>
-            <div class="text-content">
-                <h4>${item.location_name} </h4>
-                <span id="subTitle">${item.review}</span>
-                <p>${item.desc}</p>
-                </div>
-            </div>
-            <br><br>`
-        });
-        $("#Items").append(item_card)
+    $("#preloader").fadeOut(400,function(){
+        $(this).remove()
     })
-    preloadervar.style.display = "none";
-    fluid_promotion()
-
-}
-function prev(){
-    page = page - 1 
-    $("#snip_off").remove()
-    addItems()
-}   
-function next(){
-    page = page + 1
-    $("#snip_off").remove()
-    addItems() 
+   
 }

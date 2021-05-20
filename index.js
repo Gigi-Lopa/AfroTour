@@ -36,13 +36,13 @@ app.set('view options',{layout :false});
 app.use(express.Router())
 app.use('/route',router)
 // Connect to DB
-mysqlConnection.connect((err) => {
+/*mysqlConnection.connect((err) => {
     if(!err){
         console.log('connected');
     }else{
-        console.log(err.json());
+        console.log(err);
     }
-});
+});*/
 
 // Listen on port 
 const port = process.env.PORT || 4000
@@ -53,22 +53,9 @@ app.get("",(req,res) =>{
     data= {
         "password_match":true,
         length:parseInt(testData.length),
+        results:testData
     }
     res.render("index", data)
-})
-app.get("/test",(req,res) =>{
-    res.render("test")
-})
-
-app.get("/fluid-attraction", (req,res) =>{
-    let page = req.query.page;
-    let limit = req.query.limit;
-    
-    let startIndex = (page - 1) * limit;
-    let endIndex = page * limit
-
-    let results = testData.slice(startIndex,endIndex)
-    res.send(results)
 })
 app.get("/fluid-promotions", (req,res) =>{
     let options = {
@@ -85,4 +72,14 @@ app.get("/fluid-promotions", (req,res) =>{
         }
     })
 })
-
+app.post("/leading_page/:id/show", (req,res) =>{
+    let id = req.params.id;
+    let results = { }
+    testData.forEach((item) =>{
+        if(item.id === id){
+            results = item
+        }
+        
+    })  
+    console.log(results)
+})
