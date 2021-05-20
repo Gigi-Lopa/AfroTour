@@ -46,7 +46,20 @@
     }
 
 }*/
-var preloadervar = document.getElementById("preloader")
+//VARIABLES 
+var preloadervar = document.getElementById("")
+let length = document.getElementById("_length").value
+let page = 1
+let limit = 3
+
+//FUNCTIONS$
+$("document").ready(function(){
+    $(".item_card").owlCarousel({
+        items: 3,
+        navigation:true,
+        margin:0
+    })
+})
 function fluid_promotion(){
     fetch("/fluid-promotions")
     .then((res) =>{ return res.json()})
@@ -64,46 +77,24 @@ function fluid_promotion(){
             <h5>5 STars</h5> 
             </div>
              <div class="desc">
-                ${item.desc_review}
+                ${item.desc}
              </div>
              <h5>
                  <span style = "color:#3c763d">${item.date_start}</span> - <span style = "color:#a94442">${item.date_end}</span>
              </h5>
-             <button type="button" class="btn btn-warning">Read More</button>
+             <button type="button" class="read-more">Read More</button>
              </div>
            </div>
 
             `
         });
+
         $(".promotion-cards").append(card)
     })
 }
 function addItems(){
-    fetch("/fluid-attraction")
-    .then((res) =>{ return res.json()})
-    .then((data) => {
-        let item_card = ``
-        let attr = ""
-        data.forEach((item) => {
-            item_card += `
-            <div class="item">
-            <div class="image" style= "background-image: url(${item.image_src});">
-
-                <div class="featured-button button">
-                    <a href="#projects">Continue Reading</a>
-                </div>
-            </div>
-            <div class="text-content">
-                <h4>${item.location_name} </h4>
-                <span id="subTitle">${item.review}</span>
-                <p>${item.desc}</p>
-                </div>
-            </div>
-            <br><br>`
-        });
-        $("#Items").append(item_card)
+    $("#preloader").fadeOut(400,function(){
+        $(this).remove()
     })
-    preloadervar.style.display = "none";
-    fluid_promotion()
-
+   
 }

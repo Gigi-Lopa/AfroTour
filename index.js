@@ -8,7 +8,7 @@ const bordyParser = require("body-parser")
 const router = require("./router");
 const { dirname } = require('path');
 const session = require("express-session")
-
+const testData = require("./testData.json")
 // Use functions
 app.use(express.static('public')); 
 app.use("/css",express.static(__dirname+"public/css"))
@@ -36,13 +36,13 @@ app.set('view options',{layout :false});
 app.use(express.Router())
 app.use('/route',router)
 // Connect to DB
-mysqlConnection.connect((err) => {
+/*mysqlConnection.connect((err) => {
     if(!err){
         console.log('connected');
     }else{
-        console.log(err.json());
+        console.log(err);
     }
-});
+});*/
 
 // Listen on port 
 const port = process.env.PORT || 4000
@@ -50,26 +50,12 @@ app.listen(port, () => console.log('listening at  http://localhost:4000'));
 
 //Routes
 app.get("",(req,res) =>{
-    res.render("index", {"password_match":true})
-})
-app.get("/test",(req,res) =>{
-    res.render("test")
-})
-
-app.get("/fluid-attraction", (req,res) =>{
-    let options = {
-        root: path.join(__dirname)
+    data= {
+        "password_match":true,
+        length:parseInt(testData.length),
+        results:testData
     }
-    fileName = "testData.json"
-    res.sendFile(fileName, options, function(err){
-        if(!err){
-            console.log("sent")
-            
-        }
-        else{
-            console.log("error")
-        }
-    })
+    res.render("index", data)
 })
 app.get("/fluid-promotions", (req,res) =>{
     let options = {
@@ -86,4 +72,14 @@ app.get("/fluid-promotions", (req,res) =>{
         }
     })
 })
-
+app.post("/leading_page/:id/show", (req,res) =>{
+    let id = req.params.id;
+    let results = { }
+    testData.forEach((item) =>{
+        if(item.id === id){
+            results = item
+        }
+        
+    })  
+    console.log(results)
+})
