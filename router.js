@@ -25,7 +25,7 @@ router.post("/add_partner",(req, res) =>{
     let com_password = req.body.com_password;
     let com_password2 = req.body.com_password2;
     if (com_password === com_password2){
-  let query = "INSERT INTO afrotours.partner(`com_name`,`com_reg_number`,`com_email`,`hq_location`,`com_phone`,`services`,`rep_name`,`rep_position`,`rep_contact`,`password`) VALUES(?,?,?,?,?,?,?,?,?,?)"  
+  let query = "INSERT INTO afrotour.partner(`com_name`,`com_reg_number`,`com_email`,`hq_location`,`com_phone`,`services`,`rep_name`,`rep_position`,`rep_contact`,`password`) VALUES(?,?,?,?,?,?,?,?,?,?)"  
   mysqlConnection.query(query,[com_name,reg_number,com_email,hq_location,com_number,com_service,rep_name,rep_title,rep_contact,com_password], (err,rows, fields) =>{
     if(!err){
         res.redirect("/route/show_services")
@@ -39,6 +39,21 @@ router.post("/add_partner",(req, res) =>{
     else{
         res.render("index",{"password_match" :false})
     }
+})
+router.post("/add_partner",(req,res) =>{
+    // INSERT REG DETAILS
+    let first_name = req.body.first_name;
+    let last_name =  req.body.last_name;
+    let user_email = req.body.user_email;
+    let user_address = req.body.com_name;
+    let user_number = req.body.user_number;
+    let user_sex = req.body.user_sex;
+    let user_dob = req.body.user_dob;
+    let next_of_kin = req.body.reg_number;
+    let tourist_password = req.body.tourist_password;
+    let tourist_password2 = req.body.tourist_password2;
+    
+    let query
 })
 
 module.exports=router;

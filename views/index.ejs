@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Sentra - Free Bootstrap Theme</title>
+    <title>Afro-Tours</title>
 
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -245,7 +245,7 @@
                                 <div class="item">
                                     <div class="image" style="background-image:url(<%=place.image_src%>)">
                                         <div class="featured-button button">
-                                            <a href="#projects">Continue Reading</a>
+                                            <a href="/leading_page/<%=place.id%>/show">Continue Reading</a>
                                         </div>
                                     </div>
                                     <div class="text-content">
@@ -307,91 +307,8 @@
                                 <div class="regWrapper">
                                     <form method="POST" action="route/r3g_p@rtn3r" class="form-container">
                                         <h3 style="color: #0d0121">General Information</h3><br>
-                                        <div class="form-group">
-                                            <select id="selectedOption" name="rep_title">
-                                                <option class="option" value="">Your Title</option>
-                                                <option class="option" value="Founder">Founder</option>
-                                                <option class="option" value="Manager">Manager</option>
-                                                <option class="option" value="Secretary">Secretary</option>
-                                                <option class="option" value="other">Other</option>
-                                            </select>
-                                            <span class="select-btn">
-                                                <i class="zmdi zmdi-chevron-down"></i>
-                                            </span>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <input class="input-bar" type="text" 
-                                                id="rep-name"
-                                                name="rep_name" required 
-                                                class="company_name"
-                                                placeholder="Your name (as representator)">
-                                        </div>
-                                        
-                                        <div class="form-group">
-                                            <input class="input-bar" type="text" 
-                                                id="rep-number" 
-                                                name="rep_number"
-                                                required placeholder="Your Phone Number">
-                                        </div>
-                                        <div class="form-group">
-                                            <input class="input-bar" type="text" 
-                                                id="com-name"
-                                                name="com_name" required class="company_name"
-                                                placeholder="Company Name">
-                                        </div>
-                                        <div class="form-group">
-                                            <input class="input-bar" type="email"
-                                                id="com-email" name="com_email"
-                                                required class="company_name" placeholder="Email">
-                                        </div>
-                                        <div class="form-group">
-                                            <input class="input-bar" type="text" 
-                                                id="hq-location" name="hq_location"
-                                                required placeholder="HQ Location">
-                                        </div>
-                                        <div class="form-group">
-                                            <input class="input-bar" type="text"
-                                                id="com-number" name="com_number"
-                                                required placeholder="Phone Number">
-                                        </div>
-                                        <div class="form-group">
-                                            <input class="input-bar" type="text"
-                                                id="reg-number" name="reg_number"
-                                                required placeholder="Registration number">
-                                        </div>
-                                        <div class="form-group">
-                                            <input class="input-bar" type="text"
-                                                id="com-service" name="com_service"
-                                                required placeholder="Type of service">
-                                        </div>
-                                        <div class="form-group" class = "errPassword">
-                                            <input class="input-password" type="password" 
-                                                id="com-password"
-                                                name="com_password" required="true"
-                                                placeholder="Password"> 
-                                                <button type="button" id="show_password"
-                                                class="i-p-btn"><span><img src="/img/eye.svg" alt=""></span>
-                                                </button>
-                                        </div>
-                                        <div class="form-group" class="errPassword">
-                                            <input class="input-password" type="password" 
-                                                id="com-password2"
-                                                name="com_password2"
-                                                required="true"
-                                                placeholder="Confirm Password">
-                                                <button type="button" id="confirm_password"
-                                                class="i-p-btn"><span><img src="/img/eye.svg" alt=""></span></button>
-                                        </div>
-                                        <div id="err-message">
-                                            <% if (!data.password_match) { %>
-                                                <div class="alert alert-danger" role="alert">
-                                                    <strong>Password don't match</strong>
-                                                  </div>
-                                            <% } %>
-
-                                        </div>
-                                    <div id="submit-btn">
+                                        <%- include("ptn_regForm") %>
+                                        <div id="submit-btn">
                                         <button type="submit">
                                             Register
                                         </button>
@@ -406,82 +323,7 @@
                                 <div class="regWrapper">
                                     <form method="POST" action="route/add_partner" class="form-container">
                                         <h3 style="color: #0d0121">General Information</h3><br>
-                                        <div class="form-row">
-                                            <div class="form-group ">
-                                                <input type="text"class="input-bar" 
-                                                    name="first_name" id="first-name"
-                                                    placeholder="First Name">
-                                            </div> 
-                                            <div class="form-group padded">
-                                                <input type="text"class="input-bar" 
-                                                    name="last_name" id="last-name"
-                                                    placeholder="Last Name">
-                                            </div>     
-                                        </div>
-                                        <div class="form-group">
-                                            <input class="input-bar" type="email" 
-                                                id="_email"
-                                                name="user_email" required
-                                                placeholder="Email">
-                                        </div>
-                                        <div class="form-group">
-                                            <input class="input-bar" type="text"
-                                                id="address" name="user_address"
-                                                required placeholder="Address">
-                                        </div>
-                                        <div class="form-group">
-                                            <input class="input-bar" type="text" 
-                                                id="number" name="user_number"
-                                                required placeholder="Phone Number">
-                                        </div>
-                                            <div class="form-group">
-                                            <select id="form-control" name="user_sex">
-                                                <option class="option" value="">Sex</option>
-                                                <option class="option" value="Male">Male</option>
-                                                <option class="option" value="Female">Female</option>
-                                                <option class="option" value="Other">Other</option>
-                                            </select>
-                                            <span class="select-btn">
-                                                <i class="zmdi zmdi-chevron-down"></i>
-                                            </span>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <input class="input-bar" type="date"
-                                            name="user_dob"    
-                                            required placeholder="Date Of Birth">
-                                        </div>
-                                        <div class="form-group">
-                                            <input class="input-bar" type="text"
-                                                id="next-of-kin" name="next_of_kin"
-                                                required placeholder="Next Of kin">
-                                        </div>
-                                        <div class="form-group" class = "errPassword">
-                                            <input class="input-password" type="password" 
-                                                id="tourist-password"
-                                                name="tourist_password" required="true"
-                                                placeholder="Password"> 
-                                                <button type="button" id="show_password_tour"
-                                                class="i-p-btn"><span><img src="/img/eye.svg" alt=""></span>
-                                                </button>
-                                        </div>
-                                        <div class="form-group" class="errPassword">
-                                            <input class="input-password" type="password" 
-                                                id="tourist-password2"
-                                                name="tourist_password2"
-                                                required="true"
-                                                placeholder="Confirm Password">
-                                                <button type="button" id="confirm_password_tour"
-                                                class="i-p-btn"><span><img src="/img/eye.svg" alt=""></span></button>
-                                        </div>
-                                        <div id="err-message">
-                                            <% if (!data.password_match) { %>
-                                                <div class="alert alert-danger" role="alert">
-                                                    <strong>Password don't match</strong>
-                                                  </div>
-                                            <% } %>
-
-                                        </div>
+                                   <%- include("tourist_regForm")%>
                                     <div id="submit-btn">
                                         <button type="submit">
                                             Register

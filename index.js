@@ -36,13 +36,13 @@ app.set('view options',{layout :false});
 app.use(express.Router())
 app.use('/route',router)
 // Connect to DB
-/*mysqlConnection.connect((err) => {
+mysqlConnection.connect((err) => {
     if(!err){
         console.log('connected');
     }else{
         console.log(err);
     }
-});*/
+});
 
 // Listen on port 
 const port = process.env.PORT || 4000
@@ -72,14 +72,16 @@ app.get("/fluid-promotions", (req,res) =>{
         }
     })
 })
-app.post("/leading_page/:id/show", (req,res) =>{
+app.get("/leading_page/:id/show", (req,res) =>{
     let id = req.params.id;
-    let results = { }
+    let places = []
     testData.forEach((item) =>{
         if(item.id === id){
-            results = item
+            places.push(item)
+            
+           
         }
-        
-    })  
-    console.log(results)
+    }) 
+    console.log(places)
+    res.render("attraction_main",{location:places})
 })
