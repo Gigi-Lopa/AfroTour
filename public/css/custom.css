@@ -4,7 +4,6 @@
     font-size: larger;
 }
 #tab1{
-    padding-top: 2.5%;
     width: 100%;
 }
 #first-tab-group{
@@ -13,6 +12,20 @@
     box-shadow: rgb(179, 179, 179) 0px 0px 15px;  
     
 }
+.fields{
+    padding: 5%;
+}
+.errMssg{
+    display: grid;
+    place-items: center;
+    border:0.1rem solid #a94442;
+    background-color: #db7b7a9a;
+    padding: 2%;
+    border-radius: 5px;
+}
+.errMssg .errmsg{
+    color: #a94442;
+}
 .regWrapper{
     display: inline-flex;
     width: 100%;
@@ -20,7 +33,6 @@
 
 .bgimage{
     background-image: url(../img/stones.jpg);
-    border-radius: 20px
 }
 .bgimage-scnd{
     background-image: url(../img/stones1.jpg);
@@ -34,8 +46,11 @@
 
 .form-container{
     width: 50%;
-    padding-right: 2.5%;
   }
+.form-container h3{
+    text-align: left;
+    padding-left: 5%;
+}
 .form-row{
     display: inline-flex;
     width: 100%;
@@ -66,6 +81,8 @@
     display: none;
 }
 .form-group input{
+    -webkit-background-origin:unset;
+    -webkit-background-composite: unset;
     border: none;
     width: 90%;
     padding: 5% 2.5% 2.5% 2.5%;
@@ -103,10 +120,13 @@ overflow: unset;
     width: 100%;
     border-radius: 25px;
     transition: all 0.3s;
+    box-shadow: #4db6ac 0px 0px 15px;  
+
 }
 #submit-btn button:hover{
     background-color: #fff;
     color: #4db6ac;
+    box-shadow: none;
     border: 1px solid #4db6ac;
     
 }
@@ -214,7 +234,85 @@ select{
     border: 1px solid #4db6ac;
     outline: none;
 }
+/* LOGIN */
+#login{
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url(/img/slide_2.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+#login .msg{
+    text-align: center;
+}
+#login .msg h3{
+    color: #fff;
+}
+#login .options{
+    padding-top: 5%;
+    display: inline-flex;
+    width: 100%;
+    
+}
+#login .options  a h6{
+    color: #fff;    
+}
+#login .options a {
+    text-decoration: none;
+    outline: none;
+}
+#login .options .fp{
+    padding-left: 25%;
+} 
+
+#login span{
+    padding: 1%;
+}
+.loginForm{
+    margin-bottom: 10%;
+}
+.pass{
+    margin-top: 2.5%;
+}
+.email, .pass{
+    width: fit-content;
+    background-color: rgba(255, 255, 255, 0.144);
+    padding: 2%;
+    border-radius: 50px;
+}
+.email input, .pass input{
+    -webkit-background-origin:unset;
+    -webkit-background-composite: unset;
+    width: 90%;
+    padding: 2.5%;
+    border: none;
+    outline: none;
+    color: rgb(245, 245, 245);
+    background-color: transparent;
+
+
+}
+.email input::placeholder, .pass input::placeholder{
+    color: #fff;
+}
+.submit-btn{
+    padding-top: 8%;
+}
+.submit-btn button{
+    background-color: #4db6ac;
+    color: white;
+    border-radius: 50px;
+
+}
+.submit-btn button:hover{
+    color: #fff;
+    background-color: #5cebdce3;
+}
 /* Responsive*/
+
 @media (max-width: 1200px) {
     .form-row{
         display: list-item;

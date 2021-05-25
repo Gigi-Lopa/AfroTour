@@ -6,7 +6,7 @@ var user = process.env.USER
 var password = process.env.PASSWORD 
 var database = process.env.DB
 
-var mysqlConnection = mysql.createConnection({
+var mysqlConnection = mysql.createPool({
     host,
     user,
     password,

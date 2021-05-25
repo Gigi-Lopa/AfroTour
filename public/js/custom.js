@@ -47,10 +47,6 @@
 
 }*/
 //VARIABLES 
-var preloadervar = document.getElementById("")
-let length = document.getElementById("_length").value
-let page = 1
-let limit = 3
 
 //FUNCTIONS$
 $("document").ready(function(){
@@ -97,4 +93,7 @@ function addItems(){
         $(this).remove()
     })
    
+}
+function removeDiv(){
+    $(".errMssg").hide()
 }

@@ -1,68 +1,112 @@
-<div class="form-row">
-    <div class="form-group ">
-        <input type="text"class="input-bar" 
-            name="first_name" id="first-name"
-            placeholder="First Name">
-    </div> 
-    <div class="form-group padded">
-        <input type="text"class="input-bar" 
-            name="last_name" id="last-name"
-            placeholder="Last Name">
-    </div>     
-</div>
-<div class="form-group">
-    <input class="input-bar" type="email" 
-        id="_email"
-        name="user_email" required
-        placeholder="Email">
-</div>
-<div class="form-group">
-    <input class="input-bar" type="text"
-        id="address" name="user_address"
-        required placeholder="Address">
-</div>
-<div class="form-group">
-    <input class="input-bar" type="text" 
-        id="number" name="user_number"
-        required placeholder="Phone Number">
-</div>
-    <div class="form-group">
-    <select id="form-control" name="user_sex">
-        <option class="option" value="">Sex</option>
-        <option class="option" value="Male">Male</option>
-        <option class="option" value="Female">Female</option>
-        <option class="option" value="Other">Other</option>
-    </select>
-    <span class="select-btn">
-        <i class="zmdi zmdi-chevron-down"></i>
-    </span>
-</div>
+<div class="regWrapper">
+    <form method="POST" action="/add_user" class="form-container">
+        <h3 style="color: #0d0121">General Information</h3><br>
+          <div class="fields">
+            <div class="form-row">
+                <div class="form-group ">
+                    <input type="text"class="input-bar" 
+                        name="first_name" id="first-name"
+                        placeholder="First Name">
+                </div> 
+                <div class="form-group padded">
+                    <input type="text"class="input-bar" 
+                        name="last_name" id="last-name"
+                        placeholder="Last Name">
+                </div>     
+            </div>
+            <div class="form-group">
+                <input class="input-bar" type="email" 
+                    id="_email"
+                    name="user_email" required
+                    placeholder="Email">
+            </div>
+            <div class="form-group">
+                <input class="input-bar" type="text"
+                    id="address" name="user_address"
+                    required placeholder="Address">
+            </div>
+            <div class="form-group">
+                <input class="input-bar" type="text" 
+                    id="number" name="user_number"
+                    required placeholder="Phone Number">
+            </div>
+                <div class="form-group">
+                <select id="form-control"name="user_sex" required="true">
+                    <option class="option" value="">Sex</option>
+                    <option class="option" value="Male">Male</option>
+                    <option class="option" value="Female">Female</option>
+                    <option class="option" value="Other">Other</option>
+                </select>
+                <span class="select-btn">
+                    <i class="zmdi zmdi-chevron-down"></i>
+                </span>
+            </div>
+            
+            <div class="form-group">
+                <input class="input-bar" type="date"
+                name="user_dob"    
+                required placeholder="Date Of Birth">
+            </div>
+            <div class="form-group" id = "errPassword">
+                <input class="input-password" type="password" 
+                    id="tourist-password"
+                    name="tourist_password" required="true"
+                    placeholder="Password"> 
+                    <button type="button" id="show_password_tour"
+                    class="i-p-btn"><span><img src="/img/eye.svg" alt=""></span>
+                    </button>
+            </div>
+            <div class="form-group" id="newPassword">
+                <input class="input-password" type="password" 
+                    id="tourist-password2"
+                    name="tourist_password2"
+                    required="true"
+                    placeholder="Confirm Password">
+                    <button type="button" id="confirm_password_tour"
+                    class="i-p-btn"><span><img src="/img/eye.svg" alt=""></span></button>
+            </div>
+            <div class="errMssg">
+                <p class="errmsg">
 
-<div class="form-group">
-    <input class="input-bar" type="date"
-    name="user_dob"    
-    required placeholder="Date Of Birth">
-</div>
-<div class="form-group">
-    <input class="input-bar" type="text"
-        id="next-of-kin" name="next_of_kin"
-        required placeholder="Next Of kin">
-</div>
-<div class="form-group" class = "errPassword">
-    <input class="input-password" type="password" 
-        id="tourist-password"
-        name="tourist_password" required="true"
-        placeholder="Password"> 
-        <button type="button" id="show_password_tour"
-        class="i-p-btn"><span><img src="/img/eye.svg" alt=""></span>
+                </p>
+            </div>
+            <br>
+          
+            <% if (!data.password_match) {  %>
+                <script> 
+               $("document").ready(function (){
+                $(".errMssg").show()    
+                let css_props = {
+                        border: "1.5px solid #a94442",
+                        "border-radius":"1px"
+                    }    
+                    $("#errPassword").css(css_props);
+                    $("#newPassword").css(css_props);
+                    let message = "Entered Passwords not matching [ ! ]"
+                    $(".errmsg").append(message)  
+                    update_fields()
+                      
+                })
+              function update_fields(){
+                  $("#first-name").val("<%= values.first_name %>")
+                  $("#last-name").val("<%= values.last_name %>")
+                  $("#_email").val("<%= values.user_email %>")
+                  $("#address").val("<%= values.user_address %>")
+                  $("#number").val("<%= values.user_number %>")
+                  $("#user_sex").val("<%= values.user_sex %>")
+                  $("#user_dob").val("<%= values.user_dob %>")
+              }
+
+            </script>
+               <%  } %>
+    <div id="submit-btn">
+        <button type="submit">
+            Register
         </button>
-</div>
-<div class="form-group" class="errPassword">
-    <input class="input-password" type="password" 
-        id="tourist-password2"
-        name="tourist_password2"
-        required="true"
-        placeholder="Confirm Password">
-        <button type="button" id="confirm_password_tour"
-        class="i-p-btn"><span><img src="/img/eye.svg" alt=""></span></button>
+    </div>
+    </div>
+</form>
+    <div class="bgimage-scnd">
+
+    </div>
 </div>

@@ -1,9 +1,15 @@
+const { urlencoded } = require("express");
 const express = require("express");
 const { query } = require("./databaseConnection");
 const mysqlConnection = require("./databaseConnection");
+const {check , validationResult} = require("express-validator")
+const bordyParser = require("body-parser")
 const router = express.Router()
 
-router.use(express.static('public')); 
+router.use(express.static('public'));
+const urlenCoded = bordyParser.urlencoded({extended: true})
+router.use(bordyParser.json());
+
 
 router.get("/show_services",(req, res)=>{
     res.render("services")
@@ -12,7 +18,7 @@ router.get("/show_services",(req, res)=>{
 router.get("/show_errpage",(req, res)=>{
     res.render("errpage")
 })
-router.post("/add_partner",(req, res) =>{
+router.post("/add_partner",urlenCoded,(req, res) =>{
     let rep_title = req.body.rep_title;
     let rep_name =  req.body.rep_name;
     let rep_contact = req.body.rep_number;
@@ -39,21 +45,6 @@ router.post("/add_partner",(req, res) =>{
     else{
         res.render("index",{"password_match" :false})
     }
-})
-router.post("/add_partner",(req,res) =>{
-    // INSERT REG DETAILS
-    let first_name = req.body.first_name;
-    let last_name =  req.body.last_name;
-    let user_email = req.body.user_email;
-    let user_address = req.body.com_name;
-    let user_number = req.body.user_number;
-    let user_sex = req.body.user_sex;
-    let user_dob = req.body.user_dob;
-    let next_of_kin = req.body.reg_number;
-    let tourist_password = req.body.tourist_password;
-    let tourist_password2 = req.body.tourist_password2;
-    
-    let query
 })
 
 module.exports=router;
