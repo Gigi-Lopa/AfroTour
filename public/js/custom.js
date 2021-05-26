@@ -1,51 +1,3 @@
-/*function passData(){
- 
-    let rep_title = document.getElementById("selectedOption").value
-    let rep_name = document.getElementById("rep-name").value;
-    let rep_contact =  document.getElementById("rep-number").value;
-    let com_name =  document.getElementById("com-name").value
-    let com_email = document.getElementById("com-email").value
-    let hq_location = document.getElementById("hq-location").value
-    let com_number = document.getElementById("com-number").value
-    let reg_number = document.getElementById("reg-number").value
-    let com_service = document.getElementById("com-service").value
-    let com_password = document.getElementById("com-password").value
-    let com_confirm_password = document.getElementById("com-password2").value
-
-    if (com_password === com_confirm_password ){
-        data = {
-            rep_title,
-            rep_name,
-            rep_contact,
-            com_name,
-            com_email,
-            hq_location,
-            com_number,
-            reg_number,
-            com_service,
-            com_password
-        }
-        const options = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-            };
-        fetch("/route/r3g_p@rtn3r",options)
-        .then((res) => res.json())
-        .then(status => {
-            console.log(status)
-        })
-    }   
-    else{
-        let err_card = `<div class="alert alert-danger" role="alert">
-        <strong>Password don't match</strong>
-      </div>`
-        $("#err-message").append(err_card)
-    }
-
-}*/
 //VARIABLES 
 
 //FUNCTIONS$
@@ -94,6 +46,78 @@ function addItems(){
     })
    
 }
-function removeDiv(){
+// CONFIG TOUR USER SECTION
+function configUser(){
     $(".errMssg").hide()
+    $(".errMssg_ptn").hide()
 }
+function disableBtn(){
+    $(".submit_btn").attr("disabled","disabled")
+   let  btn_css = {
+       "background-color":"rgb(179, 179, 179)",
+       "box-shadow":" rgb(179, 179, 179) 0px 0px 15px ",
+       "border":"1px solid rgb(179, 179, 179)"
+   }
+    $(".submit_btn").css(btn_css)
+}
+
+function showErr(fieldClass, mssgClass){
+    let form_group_css = {
+        "border-bottom":"1px solid red"
+    }
+    $(fieldClass).css(form_group_css)
+    $(mssgClass).show()
+    
+}
+function activate_btn(fieldClass, mssgClass,btnClass){
+    let form_group_css = {
+        "border-bottom":"1px solid #4db6ac"
+    }
+    $(fieldClass).css(form_group_css)
+    $(mssgClass).hide()
+    let btn_css = {
+        "border": "none",
+        "background-color": "#4db6ac",
+        "color": "#ffff",
+       " border-radius": "25px",
+        "transition": "all 0.3s",
+        "box-shadow": "#4db6ac 0px 0px 15px",
+    }
+$(btnClass).attr("disabled",false)
+$(btnClass).css(btn_css)
+}
+
+$("document").ready(function(){
+$("#tourist-password2").keyup(function(){
+    let password = $("#tourist-password").val()
+    let confirmed_password = $("#tourist-password2").val()
+    let fieldClass =".errPassword"
+    let mssgClass = ".errMssg"
+    let btnClass = ".submit_btn"
+    if (password === confirmed_password){
+        activate_btn(fieldClass,mssgClass,btnClass)
+    }
+    else{
+       disableBtn()
+        showErr(fieldClass,mssgClass)
+
+    }
+})
+$("#com-password2").keyup(function (){
+    let password_ptn = $("#com-password").val()
+    let confirmed_password_ptn = $("#com-password2").val()
+    let fieldClass =".errPassword_ptn";
+    let mssgClass = ".errMssg_ptn";
+    let btnClass = ".submit_btn";
+    if(password_ptn === confirmed_password_ptn){
+        activate_btn(fieldClass,mssgClass,btnClass) 
+    }
+    else{
+        disableBtn()
+        showErr(fieldClass,mssgClass)
+    }
+})
+
+})
+
+// CONFIG PARTNER SECTION

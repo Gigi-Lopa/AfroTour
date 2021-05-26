@@ -1,5 +1,5 @@
 <div class="regWrapper">
-    <form method="POST" action="/add_user" class="form-container">
+    <form method="POST" action="/add/partner/" class="form-container">
         <h3 style="color: #0d0121">General Information</h3><br>
         <div class="fields">
 
@@ -61,7 +61,7 @@
                     id="com-service" name="com_service"
                     required placeholder="Type of service">
             </div>
-            <div class="form-group" class = "errPassword">
+            <div class="form-group errPassword_ptn">
                 <input class="input-password" type="password" 
                     id="com-password"
                     name="com_password" required="true"
@@ -70,7 +70,7 @@
                     class="i-p-btn"><span><img src="/img/eye.svg" alt=""></span>
                     </button>
             </div>
-            <div class="form-group" class="errPassword">
+            <div class="form-group errPassword_ptn">
                 <input class="input-password" type="password" 
                     id="com-password2"
                     name="com_password2"
@@ -79,14 +79,16 @@
                     <button type="button" id="confirm_password"
                     class="i-p-btn"><span><img src="/img/eye.svg" alt=""></span></button>
             </div>
-            
-                 
-    
+            <div class="errMssg_ptn">
+                <p class="errmsg_ptn">
+                    Given passwords don't match [ ! ]
+                </p>
+            </div>
         <div id="submit-btn">
-        <button type="submit">
+        <button class ="submit_btn" type="submit">
             Register
         </button>
-
+      
     </div>
 </div>
 </form>
@@ -94,3 +96,4 @@
 
     </div>
 </div>
+<script src="/js/custom.js"></script>

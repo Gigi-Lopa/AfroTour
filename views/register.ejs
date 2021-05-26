@@ -23,7 +23,7 @@
     <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     
 </head>
-<body onload="removeDiv()">
+<body onload="configUser()">
     <!-- START PRE LOADER-->  
     <header class="nav-down responsive-nav hidden-lg hidden-md">
         <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
@@ -72,7 +72,7 @@
     <div class="page-content">
     <section id="blog" class="content-section bg-color">
         <div class="section-heading">
-            <h1>Register</h1>
+            <h1>Registration</h1>
             <p>Register as tourist and book for your attraction site
                 <br>Register as Partner and post your business</p>
         </div>
@@ -80,8 +80,8 @@
             <div class="tabs-content">
                 <div class="wrapper">
                     <ul class="tabs clearfix" data-tabgroup="first-tab-group">
-                        <li><a href="#tab1" class="active">Partner</a></li>
-                        <li><a href="#tab2">Tourist</a></li>
+                        <li><a href="#tab1" class="active">Tourist</a></li>
+                        <li><a href="#tab2">Partner</a></li>
                     </ul>
                    
                     <section id="first-tab-group" class="tabgroup">
@@ -93,7 +93,6 @@
                          <%- include("ptn_regForm") %> 
                             
                         </div>
-             
                     </section>
                 </div>
             </div>
@@ -156,7 +155,6 @@
         });
     </script>
 </div>
-<script src="/js/custom.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 

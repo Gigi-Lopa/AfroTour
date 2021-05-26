@@ -41,7 +41,7 @@ function handleDisconnect(func){
     mysqlConnection.getConnection(function(err){
         if(err){
             console.log("db_error" + err)
-            setTimeout(handleDisconnect(insertQuery()),2000)
+            setTimeout(handleDisconnect(),2000)
         }
         else if (!err){
             console.log("db connection successful")
@@ -63,7 +63,7 @@ function handleDisconnect(func){
 const port = process.env.PORT || 4000
 app.listen(port, () => console.log('listening at  http://localhost:4000'));
 
-//Routes
+//FLOUD PAGES
 app.get("/",(req,res) =>{
      data = {
         "password_match":true,
@@ -73,10 +73,8 @@ app.get("/",(req,res) =>{
     res.render("index", data)
 })
 app.get("/register/", (req,res) =>{
-    let data = {
-        password_match : true
-    }
-    res.render("register",data)
+
+    res.render("register")
 })
 app.get("/fluid-promotions", (req,res) =>{
     let options = {
@@ -99,11 +97,11 @@ app.get("/leading_page/:id/show", (req,res) =>{
     testData.forEach((item) =>{
         if(item.id === id){
             places.push(item)    
-        }
+        } 
     }) 
     res.render("attraction_main",{location:places})
 })
-
+// Registration Functions
 app.post("/add_user",urlenCoded,(req,res) =>{
     // INSERT REG DETAILS
     let first_name = req.body.first_name;
@@ -116,9 +114,9 @@ app.post("/add_user",urlenCoded,(req,res) =>{
     let tourist_password = req.body.tourist_password;
     let tourist_password2 = req.body.tourist_password2;
 
-    if (tourist_password === tourist_password2){
+    let values = {first_name,last_name,user_email,user_address,user_number,user_sex,user_dob}
         //INSERT INTO DB AND REDIRECT WITH GOODNEWS MSG
-        let insertQuery = function(){
+      let insertQuery = function(){
             let query = "INSERT INTO registered_tourists(`forenames`,`last_name`,`date_of_birth`,`sex`,`email`,`contact_number`,`address`,`image`) VALUES(?,?,?,?,?,?,?,?)";
             mysqlConnection.query(query,[first_name,last_name,user_dob,user_sex,user_email,user_number,user_address, process.env.IMAGE],(err,rows,fields) =>{
                 if(err){
@@ -126,15 +124,30 @@ app.post("/add_user",urlenCoded,(req,res) =>{
                 }
                 else{
                    res.redirect("/")
-                }
+                   //Add a release function here :::
+            }
             })
         }
         handleDisconnect(insertQuery)
-        }
-    else{
-        let data =  {
-           password_match : false
-        }
-        res.render("register", {data, values})
-    }
+})
+app.post("/add/partner/",urlenCoded,(req,res) =>{
+    console.log("called")
+  let rep_title = req.body.rep_title;
+  let rep_name = req.body.rep_name;
+  let rep_number = req.body.rep_number;
+  let com_name = req.body.com_name;
+  let com_email =  req.body.com_email;
+  let hq_location = req.body.hq_location;
+  let com_number  = req.body.com_number;
+  let reg_number = req.body.reg_number;
+  let com_service = req.body.com_service;
+  let password = req.body.com_password;
+  let confirmed_salt = req.body.com_password2;
+
+  let values ={
+      rep_title,rep_name,rep_number,
+      com_name,com_email,hq_location,
+      com_number,reg_number,com_service
+  }
+  console.table(values)
 })

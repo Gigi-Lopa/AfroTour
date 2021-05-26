@@ -15,7 +15,7 @@
 .fields{
     padding: 5%;
 }
-.errMssg{
+.errMssg, .errMssg_ptn{
     display: grid;
     place-items: center;
     border:0.1rem solid #a94442;
@@ -23,7 +23,7 @@
     padding: 2%;
     border-radius: 5px;
 }
-.errMssg .errmsg{
+.errMssg .errmsg, .errMssg_ptn .errmsg_ptn{
     color: #a94442;
 }
 .regWrapper{
@@ -66,7 +66,7 @@
 }
 .form-group{
         border: none;
-        border-bottom: 0.5px solid #0d0121;
+        border-bottom: 0.5px solid #4db6ac;
         width: 100%
     
 }
@@ -113,7 +113,7 @@ overflow: unset;
     padding-top: 1%;
 }
 #submit-btn button{
-    border: 1px solid #4db6ac;
+    border: none;
     background-color: #4db6ac;
     color: #ffff;
     padding:2.5%;
@@ -124,11 +124,7 @@ overflow: unset;
 
 }
 #submit-btn button:hover{
-    background-color: #fff;
-    color: #4db6ac;
-    box-shadow: none;
-    border: 1px solid #4db6ac;
-    
+    background-color: #7bf1e6;  
 }
 select{
     outline: none;
@@ -246,10 +242,15 @@ select{
 }
 
 #login .msg{
+    border-bottom:3px solid #4db6ac;
     text-align: center;
+    padding-bottom:2.5% ;
+    margin-inline: 12%;
 }
+
 #login .msg h3{
     color: #fff;
+    letter-spacing: 5px;
 }
 #login .options{
     padding-top: 5%;
@@ -259,7 +260,14 @@ select{
 }
 #login .options  a h6{
     color: #fff;    
+    transition: all 0.3s;
 }
+#login .options  a h6:hover{
+    color: #fff; 
+    
+    border-bottom: 1px solid #4db6ac;}
+
+
 #login .options a {
     text-decoration: none;
     outline: none;
@@ -446,6 +454,6 @@ select{
         max-width: 100%;
     }
     .form-group input{
-        width: 30%;
+        width: max-content;
     }   
 }

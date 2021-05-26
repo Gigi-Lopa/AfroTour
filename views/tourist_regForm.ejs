@@ -47,7 +47,7 @@
                 name="user_dob"    
                 required placeholder="Date Of Birth">
             </div>
-            <div class="form-group" id = "errPassword">
+            <div class="form-group errPassword">
                 <input class="input-password" type="password" 
                     id="tourist-password"
                     name="tourist_password" required="true"
@@ -56,7 +56,7 @@
                     class="i-p-btn"><span><img src="/img/eye.svg" alt=""></span>
                     </button>
             </div>
-            <div class="form-group" id="newPassword">
+            <div class="form-group errPassword">
                 <input class="input-password" type="password" 
                     id="tourist-password2"
                     name="tourist_password2"
@@ -67,40 +67,14 @@
             </div>
             <div class="errMssg">
                 <p class="errmsg">
-
+                    Given passwords don't match [ ! ]
                 </p>
             </div>
             <br>
           
-            <% if (!data.password_match) {  %>
-                <script> 
-               $("document").ready(function (){
-                $(".errMssg").show()    
-                let css_props = {
-                        border: "1.5px solid #a94442",
-                        "border-radius":"1px"
-                    }    
-                    $("#errPassword").css(css_props);
-                    $("#newPassword").css(css_props);
-                    let message = "Entered Passwords not matching [ ! ]"
-                    $(".errmsg").append(message)  
-                    update_fields()
-                      
-                })
-              function update_fields(){
-                  $("#first-name").val("<%= values.first_name %>")
-                  $("#last-name").val("<%= values.last_name %>")
-                  $("#_email").val("<%= values.user_email %>")
-                  $("#address").val("<%= values.user_address %>")
-                  $("#number").val("<%= values.user_number %>")
-                  $("#user_sex").val("<%= values.user_sex %>")
-                  $("#user_dob").val("<%= values.user_dob %>")
-              }
-
-            </script>
-               <%  } %>
+        
     <div id="submit-btn">
-        <button type="submit">
+        <button class="submit_btn" type="submit">
             Register
         </button>
     </div>
@@ -110,3 +84,4 @@
 
     </div>
 </div>
+<script src="/js/custom.js"></script>
